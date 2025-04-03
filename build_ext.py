@@ -20,7 +20,9 @@ if platform.system() == "Windows":
     for lib in libs:
         s.add_library_dir(join(f, lib, "lib"))
         s.add_include_dir(join(f, lib, "include"))
-
+    s.add_library_dir(join(folder, "chi2comb", "lib"))  # Explicitly add chi2comb/lib/
+    s.add_include_dir(join(folder, "chi2comb", "lib"))  # Explicitly add chi2comb/lib/ to include dirs
+    
     libs = [s.find_libname(lib) for lib in libs]
 else:
     s = Unix()
